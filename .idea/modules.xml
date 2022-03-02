@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LiveNews.iml" filepath="$PROJECT_DIR$/.idea/modules/LiveNews.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/LiveNews.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/LiveNews.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LiveNews.buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/LiveNews.buildSrc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Data/LiveNews.data.iml" filepath="$PROJECT_DIR$/.idea/modules/Data/LiveNews.data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Domain/LiveNews.domain.iml" filepath="$PROJECT_DIR$/.idea/modules/Domain/LiveNews.domain.iml" />
+    </modules>
+  </component>
+</project>

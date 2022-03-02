@@ -2,8 +2,10 @@ import dependencies.AppConfig
 import dependencies.AppDependencies
 
 plugins {
-    id ("com.android.application")
-    id ("org.jetbrains.kotlin.android")
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("kotlin-android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -15,6 +17,7 @@ android {
         targetSdk = AppConfig.targetSdk
         versionCode = AppConfig.versionCode
         versionName = AppConfig.versionName
+        multiDexEnabled = true
     }
 
     buildTypes {
@@ -30,6 +33,13 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    buildFeatures {
+        dataBinding = true
+        // for view binding:
+        viewBinding = true
+    }
+
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions {
             jvmTarget = "1.8"
@@ -38,14 +48,21 @@ android {
 }
 
 dependencies {
+
+    //Import local modules
+    api(project(":data"))
+
+    //Import remote dependency
     implementation(AppDependencies.kotlin)
     implementation(AppDependencies.appCompat)
+    implementation(AppDependencies.supportV4)
+    implementation(AppDependencies.androidxKtx)
+    implementation(AppDependencies.multidex)
     implementation(AppDependencies.materialDesign)
     implementation(AppDependencies.timber)
     implementation(AppDependencies.constraintLayout)
+    implementation(AppDependencies.lifecycle)
 
-    implementation(AppDependencies.koinCore)
-    implementation(AppDependencies.koin)
-
+    //Test dependency
     testImplementation(AppDependencies.junit)
 }
