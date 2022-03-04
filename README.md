@@ -1,6 +1,6 @@
 # LiveNews Clean Architecture MVVM Coroutines Koin Livedata
 
-- Show Random list of articles using restful 
+- Show Random list of articles using restful API
 
 ### Features
 - Kotlin language
