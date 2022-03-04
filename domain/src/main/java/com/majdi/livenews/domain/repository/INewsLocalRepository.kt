@@ -9,6 +9,6 @@ import kotlinx.coroutines.flow.Flow
  */
 interface INewsLocalRepository {
     suspend fun getAllLocalNews(): Flow<List<Article>>
-    suspend fun insertNew(news: News): Flow<Long>
+    suspend fun insertNew(articles: List<Article>): Flow<Boolean>
     suspend fun deleteNews(): Flow<Int>
 }

@@ -11,22 +11,22 @@ import com.majdi.livenews.domain.models.Source
  * Email m.rabeh.majdi@gmail.com
  */
 internal fun NewsResponse.toDomain(articles: List<Article>): News {
-    return News(articles, this.status, this.totalResults)
+    return News(articles, this.status.orEmpty(), this.totalResults)
 }
 
 internal fun SourceResponse.toDomain(): Source {
-    return Source(this.id, this.name)
+    return Source(this.id.orEmpty(), this.name.toString())
 }
 
 internal fun ArticleResponse.toDomain(source: Source): Article {
     return Article(
-        this.author,
-        this.content,
-        this.description,
-        this.publishedAt,
+        author = author.orEmpty(),
+        this.content.orEmpty(),
+        this.description.orEmpty(),
+        this.publishedAt.orEmpty(),
         source,
-        this.title,
-        this.url,
-        this.urlToImage
+        this.title.orEmpty(),
+        this.url.orEmpty(),
+        this.urlToImage.orEmpty()
     )
 }

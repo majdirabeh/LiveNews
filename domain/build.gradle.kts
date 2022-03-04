@@ -25,4 +25,5 @@ dependencies {
     api(AppDependencies.coroutinesCore)
     api(AppDependencies.koin)
     api(AppDependencies.koinAndroid)
+    api(AppDependencies.timber)
 }

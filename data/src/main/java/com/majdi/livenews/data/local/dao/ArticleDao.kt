@@ -3,6 +3,7 @@ package com.majdi.livenews.data.local.dao
 import androidx.room.*
 import com.majdi.livenews.data.local.mappers.toEntity
 import com.majdi.livenews.data.local.models.ArticleEntity
+import com.majdi.livenews.domain.models.Article
 import com.majdi.livenews.domain.models.News
 
 /**
@@ -14,7 +15,7 @@ interface ArticleDao {
 
     @Transaction
     @Query("DELETE FROM article")
-    fun deleteAll() : Int
+    fun deleteAll(): Int
 
     @Transaction
     @Query("SELECT * FROM article")
@@ -24,14 +25,14 @@ interface ArticleDao {
     fun insert(articleEntity: ArticleEntity): Long
 
     @Transaction
-    fun insert(news: News): Long {
-        var totalArticle = 0
-        for (article in news.articles) {
+    fun insert(articles: List<Article>): Boolean {
+        deleteAll()
+        for (article in articles) {
             val articleEntity = article.toEntity()
             insert(articleEntity)
-            totalArticle++
+            return true
         }
-        return totalArticle.toLong()
+        return false
     }
 
 }

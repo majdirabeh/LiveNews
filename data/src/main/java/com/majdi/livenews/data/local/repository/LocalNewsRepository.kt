@@ -22,10 +22,11 @@ class LocalNewsRepository(private val articleDao: ArticleDao) : INewsLocalReposi
             val article = articleEntity.toDomain()
             articles.add(article)
         }
+        emit(articles)
     }
 
-    override suspend fun insertNew(news: News): Flow<Long> = flow {
-        val result = articleDao.insert(news)
+    override suspend fun insertNew(articles: List<Article>): Flow<Boolean> = flow {
+        val result = articleDao.insert(articles)
         emit(result)
     }
 

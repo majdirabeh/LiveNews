@@ -10,8 +10,8 @@ import kotlinx.coroutines.flow.Flow
  */
 typealias GetAllLocalNewsBase = BaseUseCase<Unit, Flow<List<Article>>>
 
-class GetAllLocalNews(
+class GetAllLocalNewsUseCase(
     private val newsRepository: INewsLocalRepository
 ) : GetAllLocalNewsBase {
-    override suspend fun invoke(params: Unit) = newsRepository.getAllLocalNews()
+    override suspend operator fun invoke(params: Unit) = newsRepository.getAllLocalNews()
 }

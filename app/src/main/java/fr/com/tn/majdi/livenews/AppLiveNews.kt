@@ -7,9 +7,12 @@ import com.majdi.livenews.data.remote.di.NetworkModule
 import com.majdi.livenews.domain.di.DomainModules
 import fr.com.tn.majdi.livenews.di.PresentationModules
 import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
+import org.koin.core.logger.Logger
+import timber.log.Timber
 
 
 /**
@@ -20,19 +23,21 @@ class AppLiveNews : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
+        Timber.plant(Timber.DebugTree())
+        Timber.tag("LiveData")
         initKoin()
     }
 
     private fun initKoin() {
         startKoin {
-            androidLogger(Level.ERROR)
             androidContext(this@AppLiveNews)
+            androidLogger(Level.ERROR)
             modules(
                 listOf(
-                    DomainModules,
                     NetworkModule,
                     DataRemoteModules,
                     DataLocalModules,
+                    DomainModules,
                     PresentationModules
                 )
             )

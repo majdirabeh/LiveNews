@@ -4,5 +4,5 @@ package com.majdi.livenews.domain.usecases
  * Email m.rabeh.majdi@gmail.com
  */
 interface BaseUseCase <in Parameter, out Result> {
-    suspend fun invoke(params: Parameter): Result
+    suspend operator fun invoke(params: Parameter): Result
 }

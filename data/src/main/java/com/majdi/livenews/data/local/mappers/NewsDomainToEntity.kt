@@ -14,12 +14,12 @@ import com.majdi.livenews.domain.models.Article
 
 internal fun Article.toEntity(): ArticleEntity {
     return ArticleEntity(
-        author = author,
-        content = content,
-        description = description,
-        publishedAt = publishedAt,
-        title = title,
-        url = url,
-        urlToImage = urlToImage
+        author = author.orEmpty(),
+        content = content.orEmpty(),
+        description = description.orEmpty(),
+        publishedAt = publishedAt.orEmpty(),
+        title = title.orEmpty(),
+        url = url.orEmpty(),
+        urlToImage = urlToImage.orEmpty()
     )
 }

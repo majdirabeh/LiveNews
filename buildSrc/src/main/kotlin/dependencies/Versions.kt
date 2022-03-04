@@ -10,6 +10,7 @@ object Versions {
     const val kotlin = "1.6.10"
     const val timber = "4.7.1"
     const val appCompat = "1.3.0"
+    const val kiel = "1.2.1"
     const val multidex = "2.0.1"
     const val material = "1.3.0"
     const val constraintLayout = "1.1.3"
@@ -17,12 +18,13 @@ object Versions {
     const val supportV4 = "1.0.0"
     const val androidxKtx = "1.1.0"
     const val koin = "3.1.5"
+    const val picasso = "2.71828"
 
 
     const val coroutines = "1.3.3"
-    const val retrofit = "2.7.0"
-    const val moshiConverter = "2.7.0"
-    const val loggingInterceptor = "4.2.1"
+    const val retrofit = "2.9.0"
+    const val moshiConverter = "2.9.0"
+    const val okhttp = "4.9.3"
 
     const val room = "2.2.5"
 

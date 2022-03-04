@@ -12,43 +12,41 @@ import org.koin.dsl.module
  * Email m.rabeh.majdi@gmail.com
  */
 val DomainModules = module {
-    single(named("GetAllRemoteNews")) {
-        provideGetAllRemoteNewsUseCase(get(), get(), get())
+    single(named("GetAllRemoteNewsUseCase")) {
+        provideGetAllRemoteNewsUseCase(get())
     }
 
-    single(named("GetAllLocalNews")) {
+    single(named("GetAllLocalNewsUseCase")) {
         provideGetAllLocalNewsUseCase(get())
     }
-    single(named("DeleteAllNews")) {
+    single(named("DeleteAllNewsUseCase")) {
         provideDeleteUseCase(get())
     }
-    single(named("InsertNews")) {
-        provideInsertUseCase(get(), get())
+    single(named("InsertNewsUseCase")) {
+        provideInsertUseCase(get())
     }
 }
 
 fun provideGetAllRemoteNewsUseCase(
-    newRepository: INewsRemoteRepository,
-    apiKey: String,
-    lang: String
+    newRepository: INewsRemoteRepository
 ): GetAllRemoteNewsBase {
-    return GetAllRemoteNews(newRepository, apiKey, lang)
+    return GetAllRemoteNewsUseCase(newRepository)
 }
 
 fun provideGetAllLocalNewsUseCase(
     newRepository: INewsLocalRepository
 ): GetAllLocalNewsBase {
-    return GetAllLocalNews(newRepository)
+    return GetAllLocalNewsUseCase(newRepository)
 }
 
 fun provideDeleteUseCase(
     newRepository: INewsLocalRepository
 ): DeleteNewsBase {
-    return DeleteNews(newRepository)
+    return DeleteNewsUseCase(newRepository)
 }
 
 fun provideInsertUseCase(
-    newRepository: INewsLocalRepository, news: News
+    newRepository: INewsLocalRepository
 ): InsertNewsBase {
-    return InsertNews(newRepository, news)
+    return InsertNewsUseCase(newRepository)
 }

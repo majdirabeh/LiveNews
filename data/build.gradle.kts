@@ -25,6 +25,7 @@ dependencies {
     api(project(":domain"))
     api(AppDependencies.retrofit)
     api(AppDependencies.moshiConverter)
+    api(AppDependencies.okhttp)
     api(AppDependencies.loggingInterceptor)
 
     api(AppDependencies.roomRuntime)

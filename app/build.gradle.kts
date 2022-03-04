@@ -6,6 +6,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -59,9 +60,10 @@ dependencies {
     implementation(AppDependencies.androidxKtx)
     implementation(AppDependencies.multidex)
     implementation(AppDependencies.materialDesign)
-    implementation(AppDependencies.timber)
     implementation(AppDependencies.constraintLayout)
     implementation(AppDependencies.lifecycle)
+    implementation(AppDependencies.picasso)
+    implementation(AppDependencies.kiel)
 
     //Test dependency
     testImplementation(AppDependencies.junit)

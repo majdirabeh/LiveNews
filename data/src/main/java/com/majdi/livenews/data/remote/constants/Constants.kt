@@ -6,6 +6,6 @@ package com.majdi.livenews.data.remote.constants
  */
 class Constants {
     companion object {
-        const val BaseUrl = "https://newsapi.org/v2/top-headlines/"
+        const val BaseUrl = "https://newsapi.org/v2/"
     }
 }

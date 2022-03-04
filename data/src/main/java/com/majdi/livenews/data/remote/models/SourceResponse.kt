@@ -6,6 +6,6 @@ import com.squareup.moshi.Json
  * Email m.rabeh.majdi@gmail.com
  */
 data class SourceResponse(
-    @field:Json(name = "id") val id: Any,
+    @field:Json(name = "id") val id: String,
     @field:Json(name = "name") val name: String
 )

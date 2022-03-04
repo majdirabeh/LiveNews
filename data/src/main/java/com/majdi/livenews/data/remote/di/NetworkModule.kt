@@ -1,5 +1,6 @@
 package com.majdi.livenews.data.remote.di
 
+
 import com.majdi.livenews.data.remote.api.NewsApi
 import com.majdi.livenews.data.remote.constants.Constants
 import okhttp3.OkHttpClient
@@ -19,6 +20,14 @@ val NetworkModule = module {
     single { provideOkHttpClient() }
 }
 
+internal fun provideRetrofit(okHttpClient: OkHttpClient, url: String): Retrofit {
+    return Retrofit.Builder()
+        .baseUrl(url)
+        .client(okHttpClient)
+        .addConverterFactory(MoshiConverterFactory.create())
+        .build()
+}
+
 internal fun provideOkHttpClient(): OkHttpClient {
     val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
@@ -26,15 +35,8 @@ internal fun provideOkHttpClient(): OkHttpClient {
     return OkHttpClient.Builder()
         .connectTimeout(60L, TimeUnit.SECONDS)
         .readTimeout(60L, TimeUnit.SECONDS)
+        .addNetworkInterceptor(httpLoggingInterceptor)
         .addInterceptor(httpLoggingInterceptor)
-        .build()
-}
-
-internal fun provideRetrofit(okHttpClient: OkHttpClient, url: String): Retrofit {
-    return Retrofit.Builder()
-        .baseUrl(url)
-        .client(okHttpClient)
-        .addConverterFactory(MoshiConverterFactory.create())
         .build()
 }
 
