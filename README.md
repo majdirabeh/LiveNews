@@ -1,7 +1,6 @@
 # LiveNews Clean Architecture MVVM Coroutines Koin Livedata
 
-- Show Random list of articles using restful [API](https://newsapi.org/v2/top-headlines?country=us&apiKey=e6118dafe6b948e9a01ce47239c90e6c) 
-
+- Show Random list of articles using restful 
 
 ### Features
 - Kotlin language
